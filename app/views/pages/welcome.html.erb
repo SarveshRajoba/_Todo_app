@@ -1,0 +1,73 @@
+<div id="todofinal-hero" class="d-flex flex-column justify-content-center align-items-center vh-100 text-center position-relative overflow-hidden" style="font-family: 'Poppins', sans-serif; background-color: #1a1a2e;">
+
+  <!-- Background Image Layer with Blur -->
+  <div style="
+    background-image: url(<%= asset_path('https://www.meistertask.com/_next/image?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F289344%2F2400x1600%2F3c50967cab%2Fto-do-list-3-1.jpg%2Fm%2F%3Fv%3D2&w=3840&q=75') %>); 
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    filter: blur(2px);  /* 40-50% blur */
+    z-index: 0;
+  "></div>
+
+  <!-- Overlay for darkening the background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  "></div>
+
+  <!-- Page-like Container with Wood Texture -->
+  <div style="
+    z-index: 3;
+    background-image: url('https://www.transparenttextures.com/patterns/wood.png');
+    background-repeat: repeat;
+    padding: 40px;
+    border-radius: 50px;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    color: #fff;
+    width: 100%;
+    max-width: 900px;
+  ">
+    <h1 class="mb-3 display-4 fw-bold" style="color: #dda15e; font-family: 'Dancing Script', cursive;">To.do</h1>
+    <p class="mb-4" style="color: #fefae0;">Manage your tasks efficiently and never miss a deadline.</p>
+    <div>
+      <%= link_to "Log In", login_path, class: "btn btn-outline-info me-2" %>
+      <%= link_to "Sign Up", signup_path, class: "btn btn-info text-dark" %>
+    </div>
+  </div>
+
+</div>
+
+<!-- Styles -->
+<style>
+  .text-teal {
+    color: #fefae0;
+  }
+
+  .btn-info {
+    background-color: #dda15e;
+    border-color: #dda15e;
+    color: #0b0c10;
+    transition: 0.3s;
+  }
+  .btn-info:hover {
+    background-color: #45a29e;
+    color: white;
+  }
+
+  .btn-outline-info {
+    color: #fefae0;
+    border-color: #4db7c5;
+    transition: 0.3s;
+  }
+  .btn-outline-info:hover {
+    background-color: #4db7c5;
+    color: #0b0c10;
+  }
+</style>

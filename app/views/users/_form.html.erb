@@ -1,0 +1,58 @@
+<div class="border rounded-4 p-4 shadow-sm bg-white">
+  <%= form_with(model: user, local: true, class: "needs-validation") do |form| %>
+    <% if user.errors.any? %>
+      <div class="alert alert-danger alert-dismissible fade show rounded-4 border-4 shadow-sm" role="alert">
+        <div class="d-flex gap-2 align-items-center mb-2">
+          <i class="bi bi-exclamation-circle-fill"></i>
+          <h6 class="mb-0"><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h6>
+        </div>
+        <ul class="list-unstyled mb-0 ms-4">
+          <% user.errors.each do |error| %>
+            <li><small><%= error.full_message %></small></li>
+          <% end %>
+        </ul>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+      <div class="card-body p-4">
+        <%# Name Field %>
+        <div class="form-floating mb-4">
+          <%= form.text_field :name, 
+              class: "form-control form-control-lg border-0 bg-light",
+              placeholder: "Enter your name",
+              required: true %>
+          <%= form.label :name, class: "text-muted" %>
+        </div>
+
+        <%# Email Field %>
+        <div class="form-floating mb-4">
+          <%= form.email_field :email, 
+              class: "form-control border-0 bg-light",
+              placeholder: "Enter your email",
+              required: true %>
+          <%= form.label :email, class: "text-muted" %>
+        </div>
+
+        <%# Password Field %>
+        <div class="form-floating mb-4">
+          <%= form.password_field :password, 
+              class: "form-control border-0 bg-light",
+              placeholder: "Create a password",
+              required: true %>
+          <%= form.label :password, class: "text-muted" %>
+        </div>
+
+        <%# Submit and Cancel Buttons %>
+        <div class="d-flex gap-3">
+          <%= form.submit user.new_record? ? "Create Account" : "Update Profile", 
+              class: "btn btn-primary px-4 py-2" %>
+          
+          <%= link_to "Cancel", user.new_record? ? root_path : user_path(user), 
+              class: "btn btn-outline-secondary px-4" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

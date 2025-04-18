@@ -1,0 +1,67 @@
+<!-- Outer Container for Vertical & Horizontal Centering -->
+<div class="d-flex align-items-center justify-content-center min-vh-100" style="font-family: 'Poppins', sans-serif; position: relative;">
+  
+  <!-- Background Image with Blur -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://cdn.vectorstock.com/i/1000v/13/40/todo-list-seamless-pattern-universal-background-vector-7561340.jpg'); background-size: cover; background-position: center; filter: blur(2px); z-index: -1;"></div>
+
+  <!-- Main Content - Form Only -->
+  <div class="col-md-6 p-4 bg-light rounded-4 shadow-sm mx-2" style="background-color: #dde5b6; max-width: 500px;">
+    <h2 class="mb-4 text-center text-primary" style="font-family: 'Dancing Script', cursive; font-size: 42px;">Sign Up</h2>
+    
+    <p class="text-muted text-center mb-4">
+      Welcome! Please fill in the details below to create an account.
+    </p>
+
+    <%= form_with model: @user, url: signup_path, local: true, data: { turbo: false }, autocomplete: "off" do |form| %>
+      <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-control", placeholder: "Enter your name", autocomplete: "new-name" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :email, class: "form-label" %>
+        <%= form.email_field :email, class: "form-control", placeholder: "Enter your email", autocomplete: "new-email"%>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-control", placeholder: "Choose a password", autocomplete: "new-password"%>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :password_confirmation, class: "form-label" %>
+        <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password", autocomplete: "new-password" %>
+      </div>
+
+      <div class="d-grid">
+        <%= form.submit "Sign Up", class: "btn btn-primary btn-sm rounded-3 py-2" %>
+      </div>
+    <% end %>
+
+    <p class="mt-4 text-center text-muted">
+      Already have an account?
+      <%= link_to "Log in", :login, class: "text-decoration-none text-primary fw-semibold" %>
+    </p>
+  </div>
+</div>
+
+<!-- Styles -->
+<style>
+  .btn-primary {
+    background-color: #dda15e;
+    border-color: #dda15e;
+    color: #0b0c10;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #45a29e;
+    color: white;
+  }
+  
+  .form-control:focus {
+    border-color: #dda15e;
+    box-shadow: 0 0 0 0.25rem rgba(221, 161, 94, 0.25);
+  }
+</style>

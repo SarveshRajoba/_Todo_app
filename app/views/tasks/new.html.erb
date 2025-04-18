@@ -1,0 +1,21 @@
+<% content_for :title, "New Task" %>
+
+<div style="background-color: #f1f8e9; min-height: 100vh;">
+  <div class="container">
+    <div class="row justify-content-center py-5">
+      <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+          <div class="card-body p-5">
+            <h4 class="card-title text-center mb-4">Create New Task</h4>
+
+            <%= render "form", task: @task %>
+
+            <div class="d-flex justify-content-between mt-4">
+              <%= link_to 'Back to tasks', tasks_path, class: "btn btn-secondary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<%= form_with(model: task, local: true, class: "needs-validation") do |form| %>
+  <% if task.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show rounded-4 border-0 shadow-sm" role="alert">
+      <div class="d-flex gap-2 align-items-center mb-2">
+        <i class="bi bi-exclamation-circle-fill"></i>
+        <h6 class="mb-0"><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h6>
+      </div>
+      <ul class="list-unstyled mb-0 ms-4">
+        <% task.errors.each do |error| %>
+          <li><small><%= error.full_message %></small></li>
+        <% end %>
+      </ul>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+
+  <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+    <div class="card-body p-4">
+      <%# Title Field %>
+      <div class="form-floating mb-4">
+        <%= form.text_field :title, 
+            class: "form-control form-control-lg border-0 bg-light",
+            placeholder: "Enter task title",
+            required: true %>
+        <%= form.label :title, class: "text-muted" %>
+      </div>
+
+      <%# Description Field %>
+      <div class="form-floating mb-4">
+        <%= form.text_area :description, 
+            class: "form-control border-0 bg-light",
+            style: "height: 120px",
+            placeholder: "Enter task description" %>
+        <%= form.label :description, class: "text-muted" %>
+      </div>
+
+      <%# Due Date and Priority Row %>
+      <div class="row g-4 mb-4">
+        <div class="col-md-6">
+          <div class="form-floating">
+            <%= form.datetime_local_field :due_date, 
+                class: "form-control border-0 bg-light",
+                placeholder: "Select due date" %>
+            <%= form.label :due_date, "Due Date", class: "text-muted" %>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-floating">
+            <%= form.select :priority, 
+                { 
+                  'High Priority' => '1',
+                  'Medium Priority' => '2',
+                  'Low Priority' => '3'
+                }, 
+                { selected: 'low' },
+                class: "form-select border-0 bg-light" %>
+            <%= form.label :priority, class: "text-muted" %>
+          </div>
+        </div>
+      </div>
+
+      <%# Completed Toggle %>
+      <div class="form-check form-switch mb-4">
+        <%= form.check_box :completed, 
+            class: "form-check-input",
+            role: "switch" %>
+        <%= form.label :completed, "Mark as completed", class: "form-check-label text-muted" %>
+      </div>
+
+      <%# Submit and Cancel Buttons %>
+      <div class="d-flex gap-3">
+        <%= form.submit task.new_record? ? "Create Task" : "Update Task", 
+            class: "btn btn-primary px-4 py-2" %>
+        
+        <%= link_to "Cancel", tasks_path, 
+            class: "btn btn-outline-secondary px-4" %>
+      </div>
+    </div>
+  </div>
+<% end %>

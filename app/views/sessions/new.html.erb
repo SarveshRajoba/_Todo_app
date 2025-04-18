@@ -1,0 +1,74 @@
+<!-- Outer Container for Vertical & Horizontal Centering -->
+<div class="d-flex align-items-center justify-content-center min-vh-100" style="font-family: 'Poppins', sans-serif; position: relative;">
+  
+  <!-- Background Image with Blur -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://cdn.vectorstock.com/i/1000v/13/40/todo-list-seamless-pattern-universal-background-vector-7561340.jpg'); background-size: cover; background-position: center; filter: blur(2px); z-index: -1;"></div>
+
+  <!-- Main Content -->
+  <div class="row w-100 mx-2" style="max-width: 800px;">
+
+    <!-- Form Column -->
+    <div class="col-md-6 p-4 shadow-sm rounded-2" style="background-color: #64b5f6;">
+      <h2 class="mb-4 text-center" style="font-family: 'Dancing Script', cursive; font-size: 42px; color: #1b4d3e;">
+  Log In
+</h2>
+
+      <%= form_with url: login_path, local: true, data: { turbo: false } do |form| %>
+        <div class="mb-4">
+          <%= form.label :email, class: "form-label" %>
+          <%= form.email_field :email, class: "form-control", placeholder: "Enter your email", autocomplete: "new-email" %>
+        </div>
+
+        <div class="mb-4">
+          <%= form.label :password, class: "form-label" %>
+          <%= form.password_field :password, class: "form-control", placeholder: "Enter your password", autocomplete: "new-password" %>
+        </div>
+
+        <div class="d-grid">
+          <%= form.submit "Log In", class: "btn btn-primary btn-sm rounded-3 py-2" %>
+        </div>
+      <% end %>
+
+      <p class="mt-4 text-center text-muted">
+        Don't have an account?
+        <%= link_to "Sign up", signup_path, class: "text-decoration-none text-primary fw-semibold" %>
+      </p>
+    </div>
+
+    <!-- Image Column -->
+    <div class="col-md-6 p-0">
+      <%= image_tag "loginimg.jpg", class: "img-fluid rounded-2 h-100 w-100 object-fit-cover", alt: "Login image" %>
+    </div>
+
+  </div>
+</div>
+
+<!-- Styles -->
+<style>
+  .btn-primary {
+    background-color: #dda15e;
+    border-color: #dda15e;
+    color: #0b0c10;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #45a29e;
+    color: white;
+  }
+
+  .btn-outline-info {
+    color: #fefae0;
+    border-color: #4db7c5;
+    transition: 0.3s;
+  }
+
+  .btn-outline-info:hover {
+    background-color: #4db7c5;
+    color: #0b0c10;
+  }
+  .text-primary {
+  color: #1e3a8a;
+}
+</style>

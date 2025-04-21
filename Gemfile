@@ -33,7 +33,7 @@ gem "bootsnap", require: false
 
 
 #bootstrap
-gem 'bootstrap', '~> 5.3.3'
+gem 'bootstrap', '~> 5.3.5'
 gem 'dartsass-rails'
 
 # for application.scss

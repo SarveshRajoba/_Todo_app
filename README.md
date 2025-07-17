@@ -1,141 +1,65 @@
-Got it. Here is the complete README file with the detailed setup and run instructions integrated into the "Getting Started" and "Usage" sections.
+# Todo App - Setup Guide
 
-You can copy the entire content from the block below and paste it into the `README.md` file in your project's root directory.
-
------
-
-````markdown
-# Todo App
-
-A simple and efficient web application for managing your daily tasks. This project features a separate front-end and back-end, allowing for a scalable and maintainable architecture.
-
-![Todo App Screenshot](<#path-to-your-app-screenshot.png>)
-*(Optional: Add a screenshot of your application here)*
+This guide provides the essential steps to get this application running on your local machine.
 
 ---
 
-## Table of Contents
+### **1. Requirements**
 
-- [About The Project](#about-the-project)
-- [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Running Tests](#running-tests)
-- [Contact](#contact)
+The following software versions are recommended for optimal performance and security. While slightly older versions may also work, it's best to use the latest stable releases.
 
----
-
-## About The Project
-
-This application is a full-stack To-Do list manager built with a modern technology stack. It provides core features for creating, viewing, updating, and deleting tasks, all through a clean and intuitive user interface.
-
-Key features include:
-* **Create, Read, Update, Delete (CRUD)** functionality for tasks.
-* **RESTful API** for seamless communication between the front-end and back-end.
-* A responsive design that works on both desktop and mobile devices.
+* **Git:** v2.46 or newer
+* **Ruby:** v3.4.2 or newer
+* **Rails:** v8.0.1 or newer
+* **Node.js:** v22.4.0 (LTS) or newer
+* **PostgreSQL:** v17 or newer
 
 ---
 
-## Built With
+### **2. Setup and Run Instructions**
 
-This project was built using the following technologies:
+Follow these steps in your terminal to set up and run the project.
 
-**Front-End:**
-* [React](https://reactjs.org/) *(or Next.js / Vite)*
-* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) & [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
-
-**Back-End:**
-* [Ruby on Rails](https://rubyonrails.org/)
-* [Ruby](https://www.ruby-lang.org/en/)
-* [PostgreSQL](https://www.postgresql.org/) *(or MySQL/SQLite)*
-
----
-
-## Getting Started
-
-Follow these steps to get a local copy of the project up and running on your machine.
-
-### Prerequisites
-
-First, ensure you have the following software installed:
-* Git
-* Ruby `[your-ruby-version]`
-* Rails `[your-rails-version]`
-* Node.js `[your-node-version]`
-* PostgreSQL (or another SQL database)
-
-### Installation
-
-1.  **Clone the Repository**
-    Open your terminal and run the following command:
-    ```sh
-    git clone [https://github.com/SarveshRajoba/_Todo_app.git](https://github.com/SarveshRajoba/_Todo_app.git)
-    cd _Todo_app
-    ```
-
-2.  **Install Back-End Dependencies**
-    Navigate to the back-end (Rails) directory and install the required gems:
-    ```sh
-    bundle install
-    ```
-
-3.  **Install Front-End Dependencies**
-    Navigate to the front-end (React/Vite) directory and install the required npm packages:
-    ```sh
-    npm install
-    ```
-
-4.  **Set Up the Database**
-    From the back-end (Rails) directory, create the database and run the migrations:
-    ```sh
-    rails db:create
-    rails db:migrate
-    ```
-
----
-
-## Usage
-
-To run the application, you need to start both the back-end and front-end servers in **two separate terminal windows**.
-
-#### 1. Start the Back-End Server (API)
-
-In your **first terminal**, navigate to the Rails directory and run:
+**a. Clone the Project**
 ```sh
-rails s
+git clone [https://github.com/SarveshRajoba/_Todo_app.git](https://github.com/SarveshRajoba/_Todo_app.git)
+cd _Todo_app
 ```
-> Leave this terminal running. The API will be available at `http://localhost:3000`.
 
-#### 2. Start the Front-End Server (UI)
-
-In a **new, second terminal**, navigate to the front-end directory and run:
+**b. Set Up the Back-End**
+Navigate to the back-end (Rails) directory and run the following commands:
 ```sh
-npm start
+# Install required gems
+bundle install
+
+# Create and migrate the database
+rails db:create
+rails db:migrate
 ```
-> Leave this terminal running. The front-end will be available at the address shown in the terminal (e.g., `http://localhost:3001`).
 
-#### 3. View the Application
-
-Open your web browser and navigate to the front-end address (e.g., `http://localhost:3001`) to use the app.
-
----
-
-## Running Tests
-
-To run the automated test suite for the back-end, navigate to the Rails directory and execute:
+**c. Set Up the Front-End**
+Navigate to the front-end (React/Vite) directory and run:
 ```sh
-rspec
+# Install required packages
+npm install
 ```
-*(Or `rails test` if you are using Minitest)*
 
----
+**d. Run the Application**
+You need to run the back-end and front-end servers simultaneously in **two separate terminals**.
 
-## Contact
+* **In Terminal 1 (for the Back-End):**
+    ```sh
+    # From the Rails directory
+    rails s
+    ```
+    > The API will now be running at `http://localhost:3000`.
 
-Sarvesh Rajoba - [GitHub Profile](https://github.com/SarveshRajoba)
+* **In Terminal 2 (for the Front-End):**
+    ```sh
+    # From the front-end directory
+    npm start
+    ```
+    > The app will now be running at the address shown in your terminal (e.g., `http://localhost:3001`).
 
-Project Link: [https://github.com/SarveshRajoba/_Todo_app](https://github.com/SarveshRajoba/_Todo_app)
-````
+**e. View the App**
+Open your browser and navigate to the front-end address (e.g., `http://localhost:3001`) to use the application.
